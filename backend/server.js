@@ -15,7 +15,7 @@ app.use(cors({
 
 app.use(cookieParser());
 
-app.post("https://newsclick-frontend.onrender.com",(req,res)=>{
+app.post("/",(req,res)=>{
     const {country,category}=req.body;
     res.cookie('news',JSON.stringify({country,category}),
     {
@@ -26,7 +26,7 @@ app.post("https://newsclick-frontend.onrender.com",(req,res)=>{
     })
     console.log(country,category);
     console.log('cookie created');
-    res.json({redirectto:'https://newsclick-frontend.onrender.com/news'});
+    res.json({redirectto:'/news'});
 })
 
 app.get('/news',async(req,res)=>{
@@ -40,10 +40,10 @@ app.get('/news',async(req,res)=>{
         console.log(country,category);
         const newsbunch=await fetch(`https://newsapi.org/v2/top-headlines?category=${category}&country=${country}&apiKey=${apiKey}`)
         const data=await newsbunch.json();
-        res.json({redirectto:'https://newsclick-frontend.onrender.com/news', message:data.articles})
+        res.json({redirectto:'/news', message:data.articles})
     }
     else{
-        res.json({redirectto:'https://newsclick-frontend.onrender.com',msg:'No news. First submit the category'});
+        res.json({redirectto:'/',msg:'No news. First submit the category'});
     }
 })
 
@@ -53,11 +53,11 @@ app.post('/news',(req,res)=>{
     if(usercookie){
         res.clearCookie("news");
         console.log('cookie deleted');
-        res.json({redirectto:'https://newsclick-frontend.onrender.com'})
+        res.json({redirectto:'/'})
     }
     else{
         console.log('no cookie created');
-        res.json({redirectto:'https://newsclick-frontend.onrender.com'})
+        res.json({redirectto:'/'})
     }
 })
 
