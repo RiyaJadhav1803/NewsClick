@@ -9,7 +9,7 @@ const cors=require("cors");
 
 app.use(express.json());
 app.use(cors({
-    origin: "https://newsclick-front.onrender.com",
+    origin: "https://newsclick-frontend.onrender.com",
     credentials: true
   }));
 
