@@ -11,7 +11,7 @@ const navigate=useNavigate();
   const backbutton=async(e)=>{
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/news',{
+      const response = await fetch('https://newsclick-backend.onrender.com/news',{
         method:'post',
         body: JSON.stringify(),
         headers: {
