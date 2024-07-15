@@ -31,8 +31,6 @@ app.post("/",(req,res)=>{
 
 app.get('/news',async(req,res)=>{
     const usercookie=req.cookies.news?JSON.parse(req.cookies.news):null;
-    if(usercookie)
-    {
         const apiKey = process.env.NEWS_API_KEY;
         console.log(usercookie);
         const country =usercookie.country?usercookie.country:' ';
@@ -41,10 +39,6 @@ app.get('/news',async(req,res)=>{
         const newsbunch=await fetch(`https://newsapi.org/v2/top-headlines?category=${category}&country=${country}&apiKey=${apiKey}`)
         const data=await newsbunch.json();
         res.json({redirectto:'/news', message:data.articles})
-    }
-    else{
-        res.json({redirectto:'/',msg:'No news. First submit the category'});
-    }
 })
 
 app.post('/news',(req,res)=>{
