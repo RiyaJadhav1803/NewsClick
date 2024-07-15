@@ -8,13 +8,13 @@ const cors=require("cors");
   
 
 app.use(express.json());
-app.use(cors({
-    origin: "https://newsclick-frontend.onrender.com",
-    credentials: true,
-   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    allowedHeaders: "Content-Type,Authorization",
-    exposedHeaders: "Content-Length,X-Foo",
-  }));
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'https://newsclick-frontend.onrender.com');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+    res.header('Access-Control-Allow-Credentials', 'true');
+    next();
+});
 
 app.use(cookieParser());
 
