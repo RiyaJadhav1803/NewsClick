@@ -26,7 +26,7 @@ app.post("https://newsclick-front.onrender.com",(req,res)=>{
     })
     console.log(country,category);
     console.log('cookie created');
-    res.json({redirectto:'https://newsclick-front.onrender.com/news'});
+    res.json({redirectto:'/news'});
 })
 
 app.get('https://newsclick-front.onrender.com/news',async(req,res)=>{
@@ -40,7 +40,7 @@ app.get('https://newsclick-front.onrender.com/news',async(req,res)=>{
         console.log(country,category);
         const newsbunch=await fetch(`https://newsapi.org/v2/top-headlines?category=${category}&country=${country}&apiKey=${apiKey}`)
         const data=await newsbunch.json();
-        res.json({redirectto:'https://newsclick-front.onrender.com/news', message:data.articles})
+        res.json({redirectto:'/news', message:data.articles})
     }
     else{
         res.json({redirectto:'https://newsclick-front.onrender.com',msg:'No news. First submit the category'});
