@@ -36,7 +36,7 @@ app.get('/news',async(req,res)=>{
         const country =usercookie.country?usercookie.country:' ';
         const category = usercookie.category?usercookie.category:' ';
         console.log(country,category);
-        const newsbunch=await fetch(`https://newsapi.org/v2/top-headlines?category=${category}&country=${country}&apiKey=${apiKey}`)
+        const newsbunch=await fetch(`https://newsapi.org/v2/top-headlines?category=entertainment&country=in&apiKey=${apiKey}`)
         const data=await newsbunch.json();
         res.json({redirectto:'/news', message:data.articles})
 })
