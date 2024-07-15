@@ -15,7 +15,7 @@ app.use(cors({
 
 app.use(cookieParser());
 
-app.post("https://newsclick-front.onrender.com",(req,res)=>{
+app.post("/",(req,res)=>{
     const {country,category}=req.body;
     res.cookie('news',JSON.stringify({country,category}),
     {
@@ -29,7 +29,7 @@ app.post("https://newsclick-front.onrender.com",(req,res)=>{
     res.json({redirectto:'/news'});
 })
 
-app.get('https://newsclick-front.onrender.com/news',async(req,res)=>{
+app.get('/news',async(req,res)=>{
     const usercookie=req.cookies.news?JSON.parse(req.cookies.news):null;
     if(usercookie)
     {
@@ -43,21 +43,21 @@ app.get('https://newsclick-front.onrender.com/news',async(req,res)=>{
         res.json({redirectto:'/news', message:data.articles})
     }
     else{
-        res.json({redirectto:'https://newsclick-front.onrender.com',msg:'No news. First submit the category'});
+        res.json({redirectto:'/',msg:'No news. First submit the category'});
     }
 })
 
-app.post('https://newsclick-front.onrender.com/news',(req,res)=>{
+app.post('/news',(req,res)=>{
     console.log('backbutton');
     const usercookie=req.cookies.news?JSON.parse(req.cookies.news):null;
     if(usercookie){
         res.clearCookie("news");
         console.log('cookie deleted');
-        res.json({redirectto:'https://newsclick-front.onrender.com'})
+        res.json({redirectto:'/'})
     }
     else{
         console.log('no cookie created');
-        res.json({redirectto:'https://newsclick-front.onrender.com'})
+        res.json({redirectto:'/'})
     }
 })
 
