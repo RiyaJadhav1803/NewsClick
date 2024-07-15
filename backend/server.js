@@ -15,7 +15,7 @@ app.use(cors({
 
 app.use(cookieParser());
 
-app.post("/",(req,res)=>{
+app.post("https://newsclick-frontend.onrender.com",(req,res)=>{
     const {country,category}=req.body;
     res.cookie('news',JSON.stringify({country,category}),
     {
