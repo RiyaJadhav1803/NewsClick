@@ -10,7 +10,8 @@ const cors=require("cors");
 app.use(express.json());
 app.use(cors({
   origin:'https://newsclick-frontend.onrender.com',
-  method:['GET','POST']
+  method:['GET','POST'],
+  credentials: true
 }));
 
 app.use(cookieParser());
