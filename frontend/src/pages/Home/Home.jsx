@@ -7,7 +7,7 @@ const navigate=useNavigate();
   const nextpage=async(e)=>{
     e.preventDefault();
     let response = await fetch(
-      'http://localhost:5000/', {
+      'https://newsclick-backend.onrender.com', {
           method: "post",
           body: JSON.stringify({country,category}),
           headers: {
