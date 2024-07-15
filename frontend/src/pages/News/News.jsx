@@ -31,7 +31,7 @@ const navigate=useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:5000/news',{
+        const response = await fetch('https://newsclick-backend.onrender.com/news',{
           credentials:'include'
         });
         const data = await response.json();
