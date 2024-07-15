@@ -9,7 +9,7 @@ const cors=require("cors");
 
 app.use(express.json());
 app.use(cors({
-    origin: "https://newsclick-front.onrender.com/",
+    origin: "https://newsclick-front.onrender.com",
     credentials: true
   }));
 
@@ -43,7 +43,7 @@ app.get('/news',async(req,res)=>{
         res.json({redirectto:'https://newsclick-front.onrender.com/news', message:data.articles})
     }
     else{
-        res.json({redirectto:'https://newsclick-front.onrender.com/',msg:'No news. First submit the category'});
+        res.json({redirectto:'https://newsclick-front.onrender.com',msg:'No news. First submit the category'});
     }
 })
 
@@ -53,11 +53,11 @@ app.post('/news',(req,res)=>{
     if(usercookie){
         res.clearCookie("news");
         console.log('cookie deleted');
-        res.json({redirectto:'https://newsclick-front.onrender.com/'})
+        res.json({redirectto:'https://newsclick-front.onrender.com'})
     }
     else{
         console.log('no cookie created');
-        res.json({redirectto:'https://newsclick-front.onrender.com/'})
+        res.json({redirectto:'https://newsclick-front.onrender.com'})
     }
 })
 
