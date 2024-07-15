@@ -77,7 +77,7 @@ const navigate=useNavigate();
       {loading
        ? ( <div>
               <div className='news-loading'>Loading...</div>
-              <div class="loader"></div>
+              <div className="loader"></div>
           </div>
         )
        : (news.map((single)=>(
