@@ -8,11 +8,13 @@ const cors=require("cors");
   
 
 app.use(express.json());
-app.use(cors({
-  origin:'https://newsclick-frontend.onrender.com',
-  method:['GET','POST'],
-  credentials: true
-}));
+app.use(cors());
+app.use(function(req,res,next){
+  res.header("Access-Control-Allow-Origin" , "*");
+  res.header("Access-Control-Allow-Methods" , "GET,POST,HEAD,OPTIONS,PUT,DELETE");
+   res.header("Access-Control-Allow-Headers" , "Origin",X-Requested-With, Content-Type , Accept , Authorization");
+  next();
+});
 
 app.use(cookieParser());
 
