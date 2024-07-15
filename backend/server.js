@@ -8,11 +8,7 @@ const cors=require("cors");
   
 
 app.use(express.json());
-app.use(cors({
-  origin: 'https://newsclick-frontend.onrender.com',
-  methods: ['GET', 'POST'],
-  credentials: true
-}));
+app.use(cors());
 
 app.use(cookieParser());
 
@@ -27,9 +23,6 @@ app.post("/",(req,res)=>{
     })
     console.log(country,category);
     console.log('cookie created');
-  res.setHeader('Access-Control-Allow-Origin', 'https://newsclick-frontend.onrender.com');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
     res.json({redirectto:'/news'});
 })
 
@@ -42,9 +35,6 @@ app.get('/news',async(req,res)=>{
         console.log(country,category);
         const newsbunch=await fetch(`https://newsapi.org/v2/top-headlines?category=${category}&country=${country}&apiKey=${apiKey}`)
         const data=await newsbunch.json();
-  res.setHeader('Access-Control-Allow-Origin', 'https://newsclick-frontend.onrender.com');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
   
         res.json({redirectto:'/news', message:data.articles})
 })
@@ -55,16 +45,10 @@ app.post('/news',(req,res)=>{
     if(usercookie){
         res.clearCookie("news");
         console.log('cookie deleted');
-      res.setHeader('Access-Control-Allow-Origin', 'https://newsclick-frontend.onrender.com');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
         res.json({redirectto:'/'})
     }
     else{
         console.log('no cookie created');
-      res.setHeader('Access-Control-Allow-Origin', 'https://newsclick-frontend.onrender.com');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
         res.json({redirectt:'/'})
     }
 })
