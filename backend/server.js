@@ -53,7 +53,7 @@ app.post('/news',(req,res)=>{
     if(usercookie){
         res.clearCookie("news");
         console.log('cookie deleted');
-        res.json({redirectto:'https://newsclick-frontend.onrender.com})
+        res.json({redirectto:'https://newsclick-frontend.onrender.com'})
     }
     else{
         console.log('no cookie created');
