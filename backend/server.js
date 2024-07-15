@@ -15,7 +15,7 @@ app.use(cors({
 
 app.use(cookieParser());
 
-app.post("/",(req,res)=>{
+app.post("https://newsclick-front.onrender.com",(req,res)=>{
     const {country,category}=req.body;
     res.cookie('news',JSON.stringify({country,category}),
     {
@@ -29,7 +29,7 @@ app.post("/",(req,res)=>{
     res.json({redirectto:'https://newsclick-front.onrender.com/news'});
 })
 
-app.get('/news',async(req,res)=>{
+app.get('https://newsclick-front.onrender.com/news',async(req,res)=>{
     const usercookie=req.cookies.news?JSON.parse(req.cookies.news):null;
     if(usercookie)
     {
@@ -47,7 +47,7 @@ app.get('/news',async(req,res)=>{
     }
 })
 
-app.post('/news',(req,res)=>{
+app.post('https://newsclick-front.onrender.com/news',(req,res)=>{
     console.log('backbutton');
     const usercookie=req.cookies.news?JSON.parse(req.cookies.news):null;
     if(usercookie){
