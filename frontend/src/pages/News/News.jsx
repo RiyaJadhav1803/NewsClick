@@ -35,13 +35,13 @@ const navigate=useNavigate();
           credentials:'include'
         });
         const data = await response.json();
-        console.log("hello");
-         console.log("hello1");
         console.log(data.message);
         if(data.message){
+          console.log("hello");
           setnews(data.message);
         }
         if(data.redirectto){
+          console.log("hello1");
           navigate(data.redirectto);
         }
         if(data.msg){
