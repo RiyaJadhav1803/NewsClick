@@ -35,6 +35,7 @@ const navigate=useNavigate();
           credentials:'include'
         });
         const data = await response.json();
+        console.log("hello");
         console.log(data.message);
         if(data.message){
           setnews(data.message);
