@@ -45,6 +45,7 @@ const navigate=useNavigate();
           console.log("hello");
           setnews(data.message);
           console.log(data.message);
+          console.log(data.cookies);
           navigate(data.redirectto);
         }
         // if(data.msg){
