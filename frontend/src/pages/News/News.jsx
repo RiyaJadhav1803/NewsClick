@@ -37,14 +37,16 @@ const navigate=useNavigate();
         });
         const data = await response.json();
         console.log(data.message);
-          if(data.msg){
+        if(data.redirectto){
+           if(data.msg){
           navigate(data.redirectto);
           alert(data.msg);
         }
-        if(data.redirectto){
+          else{
           setnews(data.message);
           console.log(data.message);
           navigate(data.redirectto);
+          }
         }
       } catch (error) {
         console.error('Error fetching data:', error);
