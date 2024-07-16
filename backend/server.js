@@ -49,7 +49,7 @@ app.get('/news',async(req,res)=>{
     }
 })
 
-app.post('/news',(req,res)=>{
+app.post('/deletecookie',(req,res)=>{
     console.log('backbutton');
     const usercookie=req.cookies.news?JSON.parse(req.cookies.news):null;
     if(usercookie){
