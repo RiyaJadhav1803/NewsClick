@@ -59,7 +59,7 @@ app.post('/news',(req,res)=>{
     }
     else{
         console.log('no cookie created');
-        res.json({redirectt:'/',message:"NO COOKIE FIRST CREATE COOKIE"})
+        res.json({redirectt:'/',msg:"NO COOKIE FIRST CREATE COOKIE"})
     }
 })
 
