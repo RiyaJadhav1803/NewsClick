@@ -42,10 +42,10 @@ app.get('/news',async(req,res)=>{
         console.log(country,category);
         const newsbunch=await fetch(`https://newsapi.org/v2/top-headlines?category=${category}&country=${country}&apiKey=${apiKey}`)
         const data=await newsbunch.json();
-        res.json({redirectto:'/news', message:data.articles})
+        res.json({redirectto:'/news', message:data.articles, cookies:usercookie})
     }
     else{
-        res.json({redirectto:'/',message:'No news. First submit the category'});
+        res.json({redirectto:'/',message:'No news. First submit the category' ,  cookies:usercookie});
     }
 })
 
