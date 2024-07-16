@@ -36,18 +36,21 @@ const navigate=useNavigate();
         });
         const data = await response.json();
         console.log(data.message);
-        if(data.message){
-          console.log("hello");
-          setnews(data.message);
-        }
+        // if(data.message){
+        //   console.log("hello");
+        //   setnews(data.message);
+        // }
         if(data.redirectto){
           console.log("hello1");
+          console.log("hello");
+          setnews(data.message);
+          console.log(data.message);
           navigate(data.redirectto);
         }
-        if(data.msg){
-          navigate(data.redirectto);
-          alert(data.msg);
-        }
+        // if(data.msg){
+        //   navigate(data.redirectto);
+        //   alert(data.msg);
+        // }
       } catch (error) {
         console.error('Error fetching data:', error);
       }finally{
