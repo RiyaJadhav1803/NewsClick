@@ -45,7 +45,7 @@ app.get('/news',async(req,res)=>{
         res.json({redirectto:'/news', message:data.articles})
     }
     else{
-        res.json({redirectto:'/',msg:'No news. First submit the category'});
+        res.json({redirectto:'/',message:'No news. First submit the category'});
     }
 })
 
