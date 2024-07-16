@@ -53,7 +53,7 @@ app.post('/news',(req,res)=>{
     console.log('backbutton');
     const usercookie=req.cookies.news?JSON.parse(req.cookies.news):null;
     if(usercookie){
-        res.clearCookie("news");
+        res.clearCookie('news');
         console.log('cookie deleted');
         res.json({redirectto:'/',message:"Cookie deleted"})
     }
