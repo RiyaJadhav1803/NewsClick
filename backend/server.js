@@ -53,13 +53,12 @@ app.post('/deletecookie',(req,res)=>{
     console.log('backbutton');
     const usercookie=req.cookies.news?JSON.parse(req.cookies.news):null;
     if(usercookie){
-        res.clearCookie('news');
-        console.log('cookie deleted');
+        res.clearCookie('news', { path: '/' }); 
+        res.setHeader('Cache-Control', 'no-store');
         res.json({redirectto:'/',message:"Cookie deleted"})
     }
     else{
-        console.log('no cookie created');
-        res.json({redirectt:'/',msg:"NO COOKIE FIRST CREATE COOKIE"})
+        res.json({redirectt:'/',message:"NO COOKIE FIRST CREATE COOKIE"})
     }
 })
 
