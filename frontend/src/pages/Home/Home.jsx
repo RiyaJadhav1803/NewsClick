@@ -19,6 +19,7 @@ const navigate=useNavigate();
       const data=await response.json();
       console.log(data);
       if(data.redirectto){
+         console.log("cookiecreated");
         console.log(data.redirectto);
         navigate(data.redirectto);
       }
