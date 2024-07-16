@@ -22,7 +22,7 @@ app.post("/",(req,res)=>{
         maxAge:3*24*60*1000,
         httpOnly:true,
         secure:true,
-        sameSite:"strict",
+        sameSite:"None",
     })
     console.log(country,category);
     console.log('cookie created');
