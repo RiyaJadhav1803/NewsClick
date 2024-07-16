@@ -55,10 +55,10 @@ app.post('/deletecookie',(req,res)=>{
     if(usercookie){
         res.clearCookie('news', { path: '/' }); 
         res.setHeader('Cache-Control', 'no-store');
-        res.json({redirectto:'/',message:"Cookie deleted"})
+        res.json({redirectto:'/',message:"Cookie deleted",cookie:usercookie})
     }
     else{
-        res.json({redirectt:'/',message:"NO COOKIE FIRST CREATE COOKIE"})
+        res.json({redirectt:'/',message:"NO COOKIE FIRST CREATE COOKIE",cookie:usercookie})
     }
 })
 
