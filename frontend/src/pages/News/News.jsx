@@ -22,6 +22,7 @@ const navigate=useNavigate();
       const data = await response.json();
       if(data.redirectto){
         console.log(data.message);
+        console.log(data.cookie);
         navigate(data.redirectto);
       }
     } catch (error) {
