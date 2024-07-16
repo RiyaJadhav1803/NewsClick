@@ -32,6 +32,7 @@ app.post("/",(req,res)=>{
 
 app.get('/news',async(req,res)=>{
     const usercookie=req.cookies.news?JSON.parse(req.cookies.news):null;
+    console.log("cookie is :",usercookie);
     if(usercookie)
     {
         const apiKey = process.env.NEWS_API_KEY;
