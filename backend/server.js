@@ -55,11 +55,11 @@ app.post('/news',(req,res)=>{
     if(usercookie){
         res.clearCookie("news");
         console.log('cookie deleted');
-        res.json({redirectto:'/'})
+        res.json({redirectto:'/',message:"Cookie deleted"})
     }
     else{
         console.log('no cookie created');
-        res.json({redirectt:'/'})
+        res.json({redirectt:'/',message:"NO COOKIE FIRST CREATE COOKIE"})
     }
 })
 
