@@ -21,7 +21,7 @@ app.post("/",(req,res)=>{
     {
         maxAge:3*24*60*1000,
         httpOnly:true,
-        secure:false,
+        secure:true,
         sameSite:"strict",
     })
     console.log(country,category);
