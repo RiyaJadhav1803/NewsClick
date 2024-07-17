@@ -53,7 +53,12 @@ app.post('/deletecookie',(req,res)=>{
     console.log('backbutton');
     const usercookie=req.cookies.news?JSON.parse(req.cookies.news):null;
     if(usercookie){
-        res.clearCookie('news', { path: '/' }); 
+        res.clearCookie('news', {
+      path: '/',
+      httpOnly: true,
+      secure: true,
+      sameSite: "None"
+    });
         res.setHeader('Cache-Control', 'no-store');
         res.json({redirectto:'/',message:"Cookie deleted",cookie:usercookie})
     }
